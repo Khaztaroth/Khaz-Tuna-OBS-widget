@@ -1,22 +1,10 @@
-# create-svelte
+## Khaz's Tuna OBS widget
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Lightweight widget to use as a browser source in OBS. It makes use of Tuna's local server to get the song, artist, and cover information. To use it you first have to have the Tuna plugin installed and configured.
 
-## Creating a project
+Download the source or fork it, then install all dependencies with `npm install` (or `pnpm install` or `yarn`). 
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+To check changes as you make them run it with:
 
 ```bash
 npm run dev
@@ -27,12 +15,10 @@ npm run dev -- --open
 
 ## Building
 
-To create a production version of your app:
+You can technically use it in a live server but building it works just fine, this project is configured to build a static HTML file that you can add as a local file in OBS. Do it by running:
 
 ```bash
 npm run build
 ```
 
 You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
