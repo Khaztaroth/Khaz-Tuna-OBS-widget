@@ -7,16 +7,15 @@
 
   export let songInfo: MusicData
   export let previousSong: PreviousMusicData | null
-
 </script>
 
-<div class="h-full w-5/6 flex flex-col">
+<div class="w-full h-full flex flex-col drop-shadow-lg">
     {#key previousSong}
-    <div class="w-full h-auto font-bold text-white italic"  bind:this={parent}>
-        <div use:textfit={{parent, mode:'single', min:90, max: 100, autoResize: true, width: 1000, height: 100}} in:fade={{duration: 1000}}>{songInfo.title}</div>
+    <div class="w-full h-5/6 font-extrabold flex-grow flex-1 drop-shadow-lg text-zinc-100" id="title" bind:this={parent}>
+        <div use:textfit={{parent, mode:'single', min:90, max: 100, autoResize: true}} in:fade={{duration: 1000}}>{songInfo.title}</div>
     </div>
-    <div class="w-full h-auto font-light text-white"  bind:this={parent}>
-        <div use:textfit={{parent,mode:'multi', min:50, max: 60, autoResize: true,  width: 1000, height: 100}} in:fade={{duration: 1000}}>by {songInfo?.artists}</div>
+    <div class="w-full h-5/6 font-ligh text-zinc-100"  id="artist" bind:this={parent}>
+        <div use:textfit={{parent,mode:'multi', min:50, max: 60, autoResize: true}} in:fade={{duration: 1000}}>by {songInfo?.artists}</div>
     </div>
     {/key}
 </div>
