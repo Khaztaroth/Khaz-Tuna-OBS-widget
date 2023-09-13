@@ -10,35 +10,13 @@
 
 </script>
 
-<div class="info">
+<div class="h-full w-5/6 flex flex-col">
     {#key previousSong}
-    <div class="title"  bind:this={parent}>
+    <div class="w-full h-auto font-bold text-white italic"  bind:this={parent}>
         <div use:textfit={{parent, mode:'single', min:90, max: 100, autoResize: true, width: 1000, height: 100}} in:fade={{duration: 1000}}>{songInfo.title}</div>
     </div>
-    <div class="artist"  bind:this={parent}>
+    <div class="w-full h-auto font-light text-white"  bind:this={parent}>
         <div use:textfit={{parent,mode:'multi', min:50, max: 60, autoResize: true,  width: 1000, height: 100}} in:fade={{duration: 1000}}>by {songInfo?.artists}</div>
     </div>
     {/key}
 </div>
-
-<style>
-    .info {
-        width: 80%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    .title {
-        width: 100%;
-        height: auto;
-        font-weight: bold;
-        color: white;
-        font-style: italic;
-    }
-    .artist {
-        width: 100%;
-        height: auto;
-        font-weight: lighter;
-        color: white;
-    }
-</style>

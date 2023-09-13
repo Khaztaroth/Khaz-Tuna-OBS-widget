@@ -37,36 +37,13 @@ onDestroy(() => {
     
 </script>
 
-<main class="labels">
+<main class="flex m-2 p-5 rounded-2xl bg-slate-700 bg-opacity-70">
     {#if songInfo}
         {#key songInfo}
-        <img class="cover" src={songInfo.cover_path} alt="cover" in:fade={{duration: 1500}}/> 
+        <img class="w-72 h-72 rounded-2xl mr-8" src={songInfo.cover_path} alt="cover" in:fade={{duration: 1500}}/> 
         <Labels {songInfo} {previousSong}></Labels>
         {/key}
         {:else}
-        <p>Loading...</p>
+        <p class="m-auto text-6xl w-72 h-72 text-center align-middle">Loading...</p>
     {/if}
     </main>
-
-<style>
-    .labels {
-        font-family: Arial, Helvetica, sans-serif;
-        display: flex;
-        margin: auto 0 auto;
-        padding: 1rem;
-        border-radius: 2rem;
-        background-color: rgba(20, 20, 20, 0.80);
-    }
-    .cover {
-        width: 25em;
-        height: 25em;
-        border-radius: 1em;
-        margin-right: 2rem;
-    }
-    p {
-        font-size: 8rem;
-        margin: auto auto auto;
-        width: 100%;
-        height: 100%;
-    }
-</style>
