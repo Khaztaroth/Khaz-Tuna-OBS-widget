@@ -11,3 +11,5 @@ export type MusicData = {
     status_id: number
     title: string
   }
+
+  export type PreviousMusicData = Record<string, {artist: string[], title: string, cover_path: string}>

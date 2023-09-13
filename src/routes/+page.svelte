@@ -1,19 +1,25 @@
 <!-- svelte-textfit https://github.com/micha-lmxt/svelte-textfit?ref=madewithsvelte.com -->
 
 <script lang="ts">
-    import type { MusicData } from "$lib/song-types.ts";
+    import type { MusicData, PreviousMusicData } from "$lib/song-types.ts";
     import { onDestroy, onMount } from "svelte";
-    import Labels from '$lib/labels.svelte'
+    import { fade } from "svelte/transition";
+    import Labels from '$lib/labels.svelte';
 
     const tunaServer = 'http://localhost:1608/'
     let songInfo: MusicData | null = null;
+    let previousSong: PreviousMusicData | null = {info: {artist: [], title: "", cover_path: ""}};
 
     async function fetchData() {
         try {
         const musicResponse = await fetch(tunaServer);
-        const musicData = await musicResponse.json();
-        songInfo = musicData;
-        // console.log(musicData);
+        const musicData: MusicData = await musicResponse.json();
+        if (musicData.artists === previousSong?.info.artist || musicData.title === previousSong?.info.title) {
+            return
+        } else {
+            songInfo = musicData;
+            previousSong = {info: {artist: songInfo?.artists, title: songInfo?.title, cover_path: songInfo?.cover_path}}
+        }
     } catch (error) {
         console.error('Error fetching data:', error)
     }
@@ -32,12 +38,14 @@ onDestroy(() => {
 
 <main class="labels">
     {#if songInfo}
-    <img class="cover" src={songInfo.cover_path} alt="cover"/> 
-    <Labels {songInfo}></Labels>
-    {:else}
+        {#key songInfo}
+        <img class="cover" src={songInfo.cover_path} alt="cover" in:fade={{duration: 1500}}/> 
+        <Labels {songInfo} {previousSong}></Labels>
+        {/key}
+        {:else}
         <p>Loading...</p>
     {/if}
-</main>
+    </main>
 
 <style>
     .labels {
