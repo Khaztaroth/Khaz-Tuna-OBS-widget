@@ -13,10 +13,10 @@
 <div class="info">
     {#key previousSong}
     <div class="title"  bind:this={parent}>
-        <div use:textfit={{parent, mode:'multi', min:90, max: 100, autoResize: true}} in:fade={{duration: 1000}}>{songInfo.title}</div>
+        <div use:textfit={{parent, mode:'single', min:90, max: 100, autoResize: true, width: 1000, height: 100}} in:fade={{duration: 1000}}>{songInfo.title}</div>
     </div>
     <div class="artist"  bind:this={parent}>
-        <div use:textfit={{parent,mode:'multi', min:50, max: 60, autoResize: true}} in:fade={{duration: 1000}}>by {songInfo?.artists}</div>
+        <div use:textfit={{parent,mode:'multi', min:50, max: 60, autoResize: true,  width: 1000, height: 100}} in:fade={{duration: 1000}}>by {songInfo?.artists}</div>
     </div>
     {/key}
 </div>

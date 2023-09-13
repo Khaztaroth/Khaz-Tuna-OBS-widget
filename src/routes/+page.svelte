@@ -1,4 +1,5 @@
 <!-- svelte-textfit https://github.com/micha-lmxt/svelte-textfit?ref=madewithsvelte.com -->
+<!-- transition documentation https://svelte.dev/docs/svelte-transition -->
 
 <script lang="ts">
     import type { MusicData, PreviousMusicData } from "$lib/song-types.ts";
