@@ -3,7 +3,6 @@
 
 <script lang="ts">
   import type { MusicData, PreviousMusicData } from "$lib/song-types.ts";
-  import { ColorExtractor } from "image-color-extraction/lib";
   import { onDestroy, onMount } from "svelte";
   import { fade } from "svelte/transition";
   import Labels from "$lib/labels.svelte";

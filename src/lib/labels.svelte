@@ -1,8 +1,8 @@
 <script lang='ts'>
   import type { MusicData, PreviousMusicData } from "./song-types";
-  import { textfit } from 'svelte-textfit';
   import { fade } from "svelte/transition";
-
+  
+  import { textfit } from 'svelte-textfit';
   let parent;
 
   export let songInfo: MusicData
